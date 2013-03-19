@@ -108,8 +108,11 @@ namespace WaspmoteGasSensorReagingGUI
 
         private void WaspGUI_FormClosing(object sender, FormClosingEventArgs e)
         {
-            spManager.StopListening();
-            spManager.Dispose();
+            if (spManager != null)
+            {
+                spManager.StopListening();
+                spManager.Dispose();
+            }
 
             sw1.Close();
             sw2.Close();
