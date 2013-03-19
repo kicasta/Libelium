@@ -37,8 +37,8 @@ void setup()
   SensorGasv20.setBoardMode(SENS_ON);
   
    // Configure the CO sensor 
-  SensorGasv20.configureSensor(SENS_SOCKET3CO, GAIN, RESISTOR);
-  
+  SensorGasv20.configureSensor(SENS_SOCKET4CO, GAIN, RESISTOR);
+   
    // Configure the CO2 sensor socket
   SensorGasv20.configureSensor(SENS_CO2, GAIN);
 
@@ -46,6 +46,9 @@ void setup()
   // Turn on the CO2 sensor and wait for stabilization and
   // sensor response time
   SensorGasv20.setSensorMode(SENS_ON, SENS_CO2);
+  SensorGasv20.setSensorMode(SENS_ON, SENS_SOCKET4CO);
+  
+  
   delay(30000);
  
   RTC.ON();
@@ -58,7 +61,7 @@ void loop()
   //Measuring Sensors
   temp = SensorGasv20.readValue(SENS_TEMPERATURE);
   hum = SensorGasv20.readValue(SENS_HUMIDITY);
-  coVal = SensorGasv20.readValue(SENS_SOCKET3CO);
+  coVal = SensorGasv20.readValue(SENS_SOCKET4CO);
   co2Val = SensorGasv20.readValue(SENS_CO2);
   
   //USB Print to Debug
